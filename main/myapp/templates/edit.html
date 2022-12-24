@@ -1,0 +1,22 @@
+{% extends 'templates/home.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static './home/css/bootstrap.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static './home/css/myapp.css' %}"/>
+{% block main %} 
+<body>
+   
+    <form method = 'POST' enctype="multipart/form-data" >
+        {% csrf_token %}
+        <table class = 'w-70 table table-light' style="border-radius:10px;">
+            {% for field in edit_form %}
+            <tr>
+                <th>{{field.label}}</th>
+                <td>{{ field }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit" class="btn btn-lg btn-success">Submit</button>
+    </form>
+
+</body>
+{% endblock main %}

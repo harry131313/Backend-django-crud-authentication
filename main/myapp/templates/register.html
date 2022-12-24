@@ -1,0 +1,96 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static './home/css/bootstrap.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static './home/css/myapp.css' %}"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class='container app-home border border-grey rounded-3'>
+       
+
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+            <div class="row mt-3">
+                <h4>Register</h4>
+            </div>
+            <form class='mt-3' action="" method="post" >
+              {% csrf_token %} 
+        
+            <div class="form-outline mb-4 mt-3">
+                    <input type="text" name="username" id="loginName" class="form-control" placeholder='Username' />
+                  </div>
+            <div class="form-outline mb-4 mt-3">
+            <input type="text" name="labname" id="loginName" class="form-control" placeholder='Lab Name' />
+            </div>
+
+            <div class="form-outline mb-4 mt-3">
+              <input type="text" name="location" id="loginName" class="form-control" placeholder='Location' />
+              </div>
+
+              <div class="form-outline mb-4 mt-3">
+                <input type="email" name="email" id="loginName" class="form-control" placeholder='Email ' />
+              </div>
+        
+              <div class="form-outline mb-4">
+                <input type="password" name="password" id="loginPassword" class="form-control" placeholder='Password'/>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="password" name="password2" id="form2Example2" class="form-control" placeholder="Renter Password" />
+                <!-- <label class="form-label" for="form2Example2">Password</label> -->
+            </div>
+           
+              <div class="row mb-4">
+                <div class="col-md-6 d-flex justify-content-center">
+            
+                  <div class="form-check mb-3 mb-md-0">
+                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                    <label class="form-check-label" for="loginCheck"> Remember me </label>
+                  </div>
+                </div>
+        
+                <div class="col-md-6 d-flex justify-content-center">
+               
+                  <a href="#!">Forgot password?</a>
+                </div>
+              </div>
+        
+         
+              <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+        
+              <div class="text-center">
+                <p>Not a member? <a href="#!">Register</a></p>
+              </div>
+            </form>
+    
+            </div>
+          </div>
+
+          <div class="container">
+            {% if messages %}
+            <div class="alert alert-danger">
+                {% for i in messages %}
+                <h5>{{i}}<h5>
+                {% endfor %}
+            {% endif %} 
+          </div>
+        
+          <ul class="nav nav-pills nav-justified mb-3 mt-3" id="ex1" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="/" role="tab"
+              aria-controls="pills-login" aria-selected="true">Login</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="/register" role="tab"
+              aria-controls="pills-register" aria-selected="false">Register</a>
+          </li>
+        </ul>
+        
+        </div>
+        
+            </div>
+</body>
+</html>
